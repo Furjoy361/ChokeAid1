@@ -8,7 +8,8 @@
   --gray: #111111;        /* darker professional gray for text */
   --light-gray: #444444;  /* darker neutral text gray */
   --white: #FFFFFF;
-  --bg: #C5D2D8;          /* darker blue-gray background for better contrast */
+  ----bg: #F5F5F5; /* slightly darker than white */
+;          /* darker blue-gray background for better contrast */
 
   --font: "Poppins", "Helvetica Neue", Arial, sans-serif;
   --radius: 10px;
@@ -363,3 +364,4 @@ footer {
   .arrow { display: none; }
   .carousel img { width: 100%; border-radius: 10px; }
 }
+
