@@ -3,144 +3,370 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChokeAid – Stop Choking Emergencies Fast</title>
-  <meta name="description" content="ChokeAid helps you stop choking emergencies quickly and safely. Easy to use, reliable, and life-saving.">
-  <link rel="canonical" href="https://chokeaid.com/">
-
-  <!-- Social share preview (optional but helps SEO & clicks) -->
-  <meta property="og:title" content="ChokeAid – Stop Choking Emergencies Fast">
-  <meta property="og:description" content="Be prepared for choking emergencies with ChokeAid — a safe, easy-to-use device that can save lives.">
-  <meta property="og:image" content="https://chokeaid.com/social-preview.png">
-  <meta property="og:url" content="https://chokeaid.com/">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="icon" type="image/png" href="Images/favicon.png">
-  <link rel="stylesheet" href="style.css">
-
-  <!-- ✅ Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1349170243384165');
-  fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1349170243384165&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- ✅ End Meta Pixel Code -->
+  <title>Yachang Hassang Enterprise</title>
 
   <style>
-    /* Hover effect for clickable products */
-    .product {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", Arial, sans-serif;
+    }
+
+    a, a:visited {
+      text-decoration: none !important;
+      color: inherit !important;
+    }
+
+    body {
+      background: #0e0e0e;
+      color: #fff;
+    }
+
+    .navbar {
+      width: 100%;
+      background: #111;
+      padding: 10px 25px;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #222;
+      height: 100px;
+    }
+
+    .logo img {
+      height: 150px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-buttons a {
+      text-decoration: none;
+      color: #0ff;
+      padding: 8px 14px;
+      border: 1px solid #0ff;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .nav-buttons a:hover {
+      background: #0ff;
+      color: #000;
+    }
+
+    .banner {
+      width: 100%;
+      height: 850px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 850px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0));
+      display: flex;
+      align-items: center;
+      padding-left: 50px;
+      z-index: 5;
+    }
+
+    .banner-text {
+      max-width: 380px;
+    }
+
+    .banner-text h1 {
+      font-size: 42px;
+      font-weight: bold;
+      color: #0ff;
+      margin-bottom: 10px;
+    }
+
+    .banner-text p {
+      font-size: 18px;
+      color: #ddd;
+      line-height: 1.5;
+    }
+
+    .shop-now-btn {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 14px 28px;
+      background: transparent;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.25s;
+      border: 2px solid #fff;
+      z-index: 10;
+    }
+
+    .shop-now-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .hero {
+      padding: 45px 20px;
+      text-align: center;
+      background: linear-gradient(to bottom, #111, #0e0e0e);
+      border-bottom: 1px solid #222;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+      color: #0ff;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: #ccc;
+    }
+
+    .product-section {
+      padding: 25px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: #181818;
+      padding: 25px;
+      border-radius: 14px;
+      text-align: center;
+      border: 1px solid #222;
+      transition: 0.25s;
+      box-shadow: 0 0 0px rgba(0,255,255,0);
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      margin-bottom: 2rem; /* spacing between boxes */
     }
-    .product:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: #0ff;
+      box-shadow: 0 0 12px rgba(0,255,255,0.4);
     }
+
+    /* UPDATED — full image, no stretch, no borders */
+   .product-card img {
+  width: 100%;
+  height: auto;     /* auto height so image is NEVER stretched */
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #333;
+  background: none;
+}
+
+
+    .product-card h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .product-card p {
+      color: #0ff;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    .buy-btn {
+      display: inline-block;
+      padding: 8px 14px;
+      background: #0ff;
+      color: #000;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.25s;
+    }
+
+    .buy-btn:hover {
+      background: #00e6e6;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px 15px;
+        height: 80px;
+      }
+
+      .logo img {
+        height: 100px;
+      }
+
+      .banner {
+        height: 450px;
+      }
+
+      .banner img {
+        height: 450px;
+      }
+
+      .banner-overlay {
+        width: 70%;
+        padding-left: 20px;
+        padding-top: 40px;
+      }
+
+      .banner-text h1 {
+        font-size: 26px;
+      }
+
+      .banner-text p {
+        font-size: 14px;
+      }
+
+      .shop-now-btn {
+        top: 75%;
+        font-size: 16px;
+        padding: 10px 18px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card img {
+    width: 100%;
+    height: auto;           /* fixes stretching */
+    max-height: 420px;      /* shows the full picture */
+    object-fit: contain;    /* ensures full image without cut */
+    background: #000;       /* removes any blank/white space */
+    border-radius: 12px;
+  }
+}
+
   </style>
 </head>
 <body>
 
-  <!-- ================= Header ================= -->
-  <header>
-    <img id="logo" src="Images/logo.png" alt="ChokeAid Logo">
-    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
-    <nav id="nav">
-      <a href="#home">Home</a>
-      <a href="#products">Shop</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <div class="navbar">
+    <div class="logo">
+      <img src="Images/logo.png" alt="Logo">
+    </div>
 
-  <!-- ================= Hero Section ================= -->
-  <section id="home" style="text-align:center; padding:3rem 1rem;">
-    <h1 style="font-size:2.8rem; color:var(--gray);">Be Ready. Save Lives.</h1>
-    <p style="font-size:1.1rem; color:var(--light-gray); margin:1rem 0;">
-      ChokeAid – The modern anti-choking device for every home.
-    </p>
-    <a href="#products" class="btn">Shop Now</a>
+    <div class="nav-buttons">
+      <a href="orders.html">Orders</a>
+      <a href="cart.html">Cart</a>
+    </div>
+  </div>
+
+  <div class="banner">
+    <img src="Images/banner1.png" alt="Banner">
+
+    <a href="#products" class="shop-now-btn">SHOP NOW</a>
+
+    <div class="banner-overlay">
+      <div class="banner-text">
+        <h1>Shop Smart. Shop Fast.</h1>
+        <p>Discover premium products with a modern shopping experience designed just for you.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <h1>Your Next-Gen Shopping Hub</h1>
+    <p>Dark • Modern • Clean • Fast</p>
   </section>
 
-  <!-- ================= Product Section ================= -->
-  <main id="products">
-    <!-- Product 1 -->
-    <section class="product" onclick="window.location.href='product1.html'">
-      <div class="carousel">
-        <button class="arrow left" onclick="prevSlide(0); event.stopPropagation();">&#8249;</button>
-        <img src="Images/1.jpg" alt="ChokeAid for Adults" id="img0">
-        <button class="arrow right" onclick="nextSlide(0); event.stopPropagation();">&#8250;</button>
-      </div>
-      <div class="product-info">
-        <h1>ChokeAid – Portable Anti-Choking Device for All Ages</h1>
-        <p>Portable choking rescue device – fast, safe, and easy to use in emergencies.</p>
-        <div class="price">₹999 <span>₹1299</span></div>
-        <a href="product1.html" class="btn">Buy Now</a>
-      </div>
-    </section>
+  <section class="product-section" id="products">
+    <div class="product-grid">
 
-    <!-- Product 2 -->
-    <section class="product" onclick="window.location.href='product2.html'">
-      <div class="carousel">
-        <button class="arrow left" onclick="prevSlide(1); event.stopPropagation();">&#8249;</button>
-        <img src="Images/p1.jpg" alt="ChokeAid for Kids" id="img1">
-        <button class="arrow right" onclick="nextSlide(1); event.stopPropagation();">&#8250;</button>
-      </div>
-      <div class="product-info">
-        <h1>ChokeAid Choking Rescue Tool | Portable & Easy to Use</h1>
-        <p>Portable choking rescue device – fast, safe, and easy to use in emergencies.</p>
-        <div class="price">₹799 <span>₹1099</span></div>
-        <a href="product2.html" class="btn">Buy Now</a>
-      </div>
-    </section>
+      <a href="product1.html" class="product-card">
+        <img src="images/a1.jpg"><h3>Smart Electric Scalp & Body Massager – 96 Points, Detachable, Waterproof, Rechargeable (White)</h3><p>₹1199</p>
+      </a>
 
-    <!-- Combo Pack -->
-    <section class="product" onclick="window.location.href='product3.html'">
-      <div class="carousel">
-        <button class="arrow left" onclick="prevSlide(2); event.stopPropagation();">&#8249;</button>
-        <img src="Images/pp1.png" alt="ChokeAid Combo Pack" id="img2">
-        <button class="arrow right" onclick="nextSlide(2); event.stopPropagation();">&#8250;</button>
-      </div>
-      <div class="product-info">
-        <h1>ChokeAid® Dual Pack | Adult & Kid Anti-Choking Devices</h1>
-        <p>Portable choking rescue device – fast, safe, and easy to use in emergencies.</p>
-        <div class="price">₹1699 <span>₹1999</span></div>
-        <a href="product3.html" class="btn">Buy Combo</a>
-      </div>
-    </section>
-  </main>
+      <a href="product2.html" class="product-card">
+        <img src="images/b1.jpg"><h3>Baby Safety Password Keypad Door Lock (White, 1 Pc)</h3><p>₹499</p>
+      </a>
 
-  <!-- ================= Footer ================= -->
-  <footer>
-    © 2025 ChokeAid™ | www.ChokeAid.shop | Contact: +91 8794932081
-  </footer>
+      <a href="product3.html" class="product-card">
+        <img src="images/c1.jpeg"><h3>Shiatsu Deep Rolling Massager – 3D Kneading, Heat, Adjustable Intensity for Neck, Back & Shoulders</h3><p>₹1599</p>
+      </a>
 
-  <script>
-    // Simple image carousel
-    const images = [
-      ["Images/1.jpg", "Images/2.jpg" , "Images/3.jpg", "Images/4.jpg", "Images/5.jpg", "Images/6.jpg"],
-      ["Images/p1.jpg", "Images/p2.jpg" , "Images/p3.jpg", "Images/p4.jpg", "Images/p5.jpg"],
-      ["Images/pp1.png", "Images/1.jpg" , "Images/p1.jpg", "Images/p2.jpg", "Images/2.jpg", "Images/p3.jpg", "Images/3.jpg"]
-    ];
-    let indexes = [0,0,0];
-    function nextSlide(i){ indexes[i]=(indexes[i]+1)%images[i].length; document.getElementById("img"+i).src=images[i][indexes[i]]; }
-    function prevSlide(i){ indexes[i]=(indexes[i]-1+images[i].length)%images[i].length; document.getElementById("img"+i).src=images[i][indexes[i]]; }
+      <a href="product4.html" class="product-card">
+        <img src="images/d1.jpg"><h3>Portable Cordless Heating Pad for Menstrual Cramps Relief, for Stomach, 3-Speed Temperature Adjustment and 4-Speed Massage Modes, Back and Belly Heating Pad for Women Pink Color</h3><p>₹615</p>
+      </a>
 
-    // Mobile nav toggle
-    function toggleMenu(){
-      const nav=document.getElementById("nav");
-      nav.classList.toggle("show");
-    }
-  </script>
+      <a href="product5.html" class="product-card">
+        <img src="images/e1.jpg"><h3>Baby Nail Trimmer Electric Nail Clipper for Infants & Kids | Safe & Silent Nail Cutter with Nail Debris Collector | Rechargeable Automatic Baby Nail Trimmer for Newborns & Toddlers | Portable Kids Grooming Tool</h3><p>₹799</p>
+      </a>
+
+      <a href="product6.html" class="product-card">
+        <img src="images/f1.jpg"><h3>
+Rechargeable Waterproof 3D Scalp Massager-Handheld Portable Head Massager Machine For Stress Relief And Deep Muscle Relaxation (White)</h3><p>₹2299</p>
+      </a>
+
+      <a href="product7.html" class="product-card">
+        <img src="images/g1.jpg"><h3>Folding Silicone Water Bottle Sports Water Bottle Outdoor Travel Portable Water Cup Running Riding Camping Hiking Kettle - 600 Ml</h3><p>₹449</p>
+      </a>
+
+      <a href="product8.html" class="product-card">
+        <img src="images/h1.jpg"><h3>
+HD Visor for Car, for Day and Night, Polarized Sun Visor, Anti-Glare, UV Blocking Sun Protection Vehicle Windshield Sunshade for Clearer Vision and Safe Driving (car Sun Visor)</h3><p>₹499</p>
+      </a>
+
+      <a href="product9.html" class="product-card">
+        <img src="images/i1.jpg"><h3>Stainless Steel Self Defence Stick Foldable Pointer Compact Magical Stick, Extendable Wand with Comfortable Grip & Hiking Stick, Extendable Wand with Non-Slip Grip (Pack of 1)</h3><p>₹489</p>
+      </a>
+
+      <a href="product10.html" class="product-card">
+        <img src="images/j2.jpg"><h3>Jet Flame Butane Gas Lighter Refillable Windproof Torch Lighter with Safety Lock and Adjustable Flame | Cool Lighters for Candles, Campfires, BBQ, Baking, Fireplace, Camping | Metal Body</h3><p>₹799</p>
+      </a>
+
+      <a href="product11.html" class="product-card">
+        <img src="images/k1.jpg"><h3>Pet Hair Brush for Dogs & Cats | Foldable Steamer Grooming Comb | Self Cleaning Lint Remover</h3><p>₹299</p>
+      </a>
+
+      <a href="product15.html" class="product-card">
+        <img src="images/o1.jpg"><h3>LED Matrix Pixel Sign with Bluetooth App Control – 10x35 cm DIY Programmable Flexible LED Display</h3><p>₹2399</p>
+      </a>
+
+      <a href="product16.html" class="product-card">
+        <img src="images/p1.jpg"><h3>Anti Choking Device, Choking Rescue Device for Kids and Adults, Portable Airway Suction Device, Airway Suction Device for Home & Travel First Aid Kit</h3><p>₹899</p>
+      </a>
+
+      <a href="product17.html" class="product-card">
+        <img src="images/q1.jpg"><h3>Sunset Projection Lamp with RGB Mood Light, Humidifier Function, USB Powered, Pink and White</h3><p>₹899</p>
+      </a>
+
+    </div>
+  </section>
 
 </body>
 </html>

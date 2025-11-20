@@ -12,7 +12,149 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="details.css">
+  <style>
+    /* ===== Reset & Body ===== */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #0e0e0e;
+      color: #fff;
+    }
+
+    /* ===== Header ===== */
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      background-color: #111;
+      border-bottom: 1px solid #222;
+    }
+
+    header #logo {
+      height: 60px;
+      object-fit: contain;
+    }
+
+    /* ===== Product Preview ===== */
+    .product-box {
+      width: 90%;
+      max-width: 600px;
+      margin: 30px auto 10px auto;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,255,255,0.2);
+    }
+
+    .product-box img {
+      width: 160px;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid #222;
+    }
+
+    .product-box h3 {
+      color: #0ff;
+      font-size: 18px;
+      margin-top: 12px;
+    }
+
+    .product-box p {
+      color: #0ff;
+      font-size: 16px;
+      margin-top: 5px;
+      font-weight: 600;
+    }
+
+    /* ===== Main Form ===== */
+    main {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0 40px 0;
+    }
+
+    .order-form {
+      width: 90%;
+      max-width: 600px;
+      background-color: #111;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #222;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    }
+
+    .order-form h2 {
+      text-align: center;
+      color: #0ff;
+      margin-bottom: 25px;
+      font-size: 26px;
+    }
+
+    .order-form label {
+      display: block;
+      color: #0ff;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .order-form input,
+    .order-form textarea,
+    .order-form select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #333;
+      background-color: #000;
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .order-form input:focus,
+    .order-form textarea:focus,
+    .order-form select:focus {
+      outline: none;
+      border: 1px solid #0ff;
+      box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+    }
+
+    .order-form textarea {
+      resize: none;
+    }
+
+    /* ===== Button ===== */
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #0ff;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      background-color: #00e6e6;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #111;
+      border-top: 1px solid #222;
+      color: #0ff;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
 
@@ -21,10 +163,20 @@
     <img src="Images/logo.png" alt="Yachang Hassang Enterprise Logo" id="logo">
   </header>
 
+  <!-- Product Preview -->
+  <div class="product-box" id="productBox" style="display:none;">
+    <img id="productImg" src="" alt="">
+    <h3 id="productName"></h3>
+    <p id="productPrice"></p>
+  </div>
+
   <!-- Form -->
   <main>
-    <form id="orderForm" class="order-form" method="POST" action="https://script.google.com/macros/s/AKfycbxbi9OUS_-VtljfQORmqby4B2tK94JlZGL70aoRwqtPhsf2GC-uUQ1xMmHVy5vs64_cXA/exec">
+    <form id="orderForm" class="order-form" method="POST" action="https://script.google.com/macros/s/AKfycbwohDVPzTeuhmZw9i0RcwEj41U-4bLHplpjmGgIrddSpan7arV9EzTOIXfeKy3mLPnD/exec">
       <h2>Enter Your Details</h2>
+
+      <input type="hidden" id="pname" name="product_name">
+      <input type="hidden" id="pprice" name="product_price">
 
       <label for="name">Full Name</label>
       <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -52,35 +204,62 @@
     <p>© 2025 <strong>Yachang Hassang Enterprise</strong> | All Rights Reserved</p>
   </footer>
 
-  <!-- ======== Google Sheet Integration ======== -->
-  <script>
-  document.getElementById('orderForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+  <!-- ======== UPDATED SCRIPT (with product source redirect) ======== -->
+<script>
+// ===== Load product details from URL =====
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+const img = params.get("img");
+const price = params.get("price");
 
-    const formData = new FormData(this);
-    const paymentMethod = document.getElementById('payment').value;
+// NEW: detect which product opened this page
+const source = params.get("source"); // product1 or product2
 
-    fetch(this.action, {
-      method: 'POST',
-      body: formData
-    })
-    .then(res => res.text())
-    .then(data => {
-      if (paymentMethod === "Cash on Delivery") {
-        alert('✅ Order placed successfully! (Cash on Delivery)');
-        window.location.href = "thankyou.html"; // Redirect to thank you page
-      } else if (paymentMethod === "Prepaid (Online Payment)") {
-        alert('✅ Order submitted! Redirecting to payment...');
-        window.location.href = "https://rzp.io/rzp/6KZ4lX3"; // Razorpay link
-      }
-      this.reset();
-    })
-    .catch(err => {
-      console.error(err);
-      alert('❌ Something went wrong. Please try again.');
-    });
+if (name && img && price) {
+  document.getElementById("productBox").style.display = "block";
+  document.getElementById("productName").textContent = name;
+  document.getElementById("productImg").src = img;
+  document.getElementById("productPrice").textContent = "Price: ₹" + price;
+
+  // Add into hidden inputs
+  document.getElementById("pname").value = name;
+  document.getElementById("pprice").value = price;
+}
+
+// ===== Form submission =====
+// ===== Form submission =====
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+  const paymentMethod = document.getElementById('payment').value;
+
+  fetch(this.action, {
+    method: 'POST',
+    body: formData
+  })
+  .then(res => res.text())
+  .then(data => {
+
+    if (paymentMethod === "Cash on Delivery") {
+      alert('✅ Order placed successfully! (Cash on Delivery)');
+      window.location.href = "thankyou.html"; 
+    } 
+    
+    else if (paymentMethod === "Prepaid (Online Payment)") {
+      alert('✅ Order submitted! Redirecting to payment...');
+      window.location.href = "https://rzp.io/rzp/ahb0nUab";
+    }
+
+    this.reset();
+  })
+  .catch(err => {
+    console.error(err);
+    alert('❌ Something went wrong. Please try again.');
   });
-  </script>
-</body>
+});
 
+</script>
+
+</body>
 </html>

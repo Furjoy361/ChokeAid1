@@ -3,16 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shiatsu Deep Rolling Massager | Yachang Hassang Enterprise</title>
+  <title>Sunset Projection Lamp | Yachang Hassang Enterprise</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", Arial, sans-serif;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", Arial, sans-serif; }
     body { background: #0e0e0e; color: #fff; }
 
     .navbar {
@@ -55,14 +49,7 @@
 
     .cartBounce { animation: cartBounce 0.45s ease forwards; }
 
-    .product-container {
-      display: flex;
-      gap: 35px;
-      padding: 40px;
-      max-width: 1300px;
-      margin: auto;
-      flex-wrap: wrap;
-    }
+    .product-container { display: flex; gap: 35px; padding: 40px; max-width: 1300px; margin: auto; flex-wrap: wrap; }
 
     .left-images-wrapper { display: flex; gap: 15px; align-items: flex-start; flex: 1; min-width: 320px; }
 
@@ -195,7 +182,7 @@
 
   <div class="navbar">
     <div class="logo">
-      <img src="images/logo.jpeg" alt="Logo">
+      <img src="images/logo.jpg" alt="Logo">
     </div>
 
     <div class="nav-buttons">
@@ -210,55 +197,51 @@
     <div class="left-images-wrapper">
 
       <div class="thumbs">
-        <img src="images/c1.jpeg" onclick="changeImg('images/c1.jpeg')">
-        <img src="images/c2.jpeg" onclick="changeImg('images/c2.jpeg')">
-        <img src="images/c3.jpeg" onclick="changeImg('images/c3.jpeg')">
-        <img src="images/c4.jpeg" onclick="changeImg('images/c4.jpeg')">
-        <img src="images/c5.jpeg" onclick="changeImg('images/c5.jpeg')">
-
-        <div id="moreThumbs" style="display:none;">
-          <img src="images/c6.jpeg" onclick="changeImg('images/c6.jpeg')">
-          <img src="images/c7.jpeg" onclick="changeImg('images/c7.jpeg')">
-          <img src="images/c8.jpeg" onclick="changeImg('images/c8.jpeg')">
-        </div>
+        <img src="images/q1.jpg" onclick="changeImg('images/q1.jpg')">
+        <img src="images/q2.jpg" onclick="changeImg('images/q2.jpg')">
+        <img src="images/q3.jpg" onclick="changeImg('images/q3.jpg')">
+        <img src="images/q4.jpg" onclick="changeImg('images/q4.jpg')">
 
         <button class="view-more-btn" id="viewMoreBtn" onclick="showMore()">View More</button>
         <button class="view-more-btn" id="viewLessBtn" style="display:none;" onclick="hideMore()">View Less</button>
       </div>
 
-      <img id="bigImg" src="images/c1.jpeg" class="main-img">
+      <img id="bigImg" src="images/q1.jpg" class="main-img">
 
     </div>
 
     <div class="right-info">
-      <h1>Shiatsu Deep Rolling Massager – 3D Kneading, Heat, Adjustable Intensity for Neck, Back & Shoulders</h1>
-      <p class="price">₹1599</p>
+
+      <h1>Sunset Projection Lamp with RGB Mood Light, Humidifier Function, USB Powered, Pink and White</h1>
+
+      <p class="price">₹899</p>
 
       <p class="desc">
-        Relieve pain instantly with this Shiatsu Deep Rolling Massager. Equipped with 3D kneading nodes, soothing heat, and adjustable intensity, it targets your neck, back, shoulders, and more. Perfect for home or office — melts tension, boosts relaxation, and feels like a real massage.
+        A beautiful matte-finish sunset projection lamp with RGB mood lighting, built-in humidifier, USB power, and a modern touch control design — perfect for home décor and relaxation.
       </p>
 
       <a class="buy-btn" href="#" onclick="addToCart()">Add to Cart</a>
 
       <a class="buy-btn"
-         href="details3.html?name=Shiatsu%20Deep%20Rolling%20Massager&img=images/c1.jpeg&price=1599"
+         href="details17.html?name=Sunset%20Projection%20Lamp&img=images/q1.jpg&price=899"
          style="margin-left: 10px;">
          Buy Now
       </a>
 
       <button class="details-btn" id="detailsBtn" onclick="toggleDetails()">Show Details</button>
+
       <div class="product-details" id="productDetails">
         <ul>
-          <li>Color: Pink</li>
-          <li>Item Model Number: ‎ms17034</li>
-          <li>Primary Material: ‎Others</li>
-          <li>Capacity: ‎Standard</li>
-          <li>Number of Pieces: ‎1</li>
-          <li>What’s in the Box?: ‎1 Pack of Shiatsu Deep Rolling Massager</li>
-          <li>Country of Origin: ‎China</li>
-          <li>Item Weight: ‎350 g</li>
-          <li>Item Dimensions (LxWxH): ‎15 x 15 x 15 cm</li>
-          <li>Net Quantity: ‎1 count</li>
+          <li>Finish Type: Matte</li>
+          <li>Base Material: Plastic</li>
+          <li>Bulb Base: E26</li>
+          <li>Product Dimensions: 15D x 15W x 12H Centimeters</li>
+          <li>Item Weight: 300 Grams</li>
+          <li>Lamp Type: Projection</li>
+          <li>Shade Colour: Pink</li>
+          <li>Shade Material: Plastic</li>
+          <li>Switch Type: Touch</li>
+          <li>Style: Modern</li>
         </ul>
       </div>
 
@@ -267,10 +250,7 @@
   </div>
 
   <script>
-    let images = [
-      "images/c1.jpeg","images/c2.jpeg","images/c3.jpeg","images/c4.jpeg",
-      "images/c5.jpeg","images/c6.jpeg","images/c7.jpeg","images/c8.jpeg"
-    ];
+    let images = ["images/q1.jpg","images/q2.jpg","images/q3.jpg","images/q4.jpg"];
     let currentIndex = 0;
     const bigImg = document.getElementById("bigImg");
 
@@ -309,15 +289,9 @@
 
     function addToCart() {
       const product = {
-        name: "Shiatsu Deep Rolling Massager",
-        price: 1599,
-        image: "images/c1.jpeg",
-        material: "ABS + Soft Mesh Fabric",
-        installation: "Plug & Play",
-        useFor: "Neck, Back, Shoulders, Full Body",
-        colour: "Black",
-        lockType: "None",
-        specialFeature: "3D Kneading, Heat, Adjustable Speed",
+        name: "Sunset Projection Lamp",
+        price: 899,
+        image: "images/q1.jpg",
         qty: 1
       };
 
